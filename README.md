@@ -32,10 +32,11 @@ Mertcan, as the personal skill library backing his day-to-day Claude Code usage,
 | [`mrt-pre-push-gate`](mrt-pre-push-gate/README.md) | Pre-push test/doc hygiene gate for a specific Laravel project. |
 | [`mrt-ui-design-guardrails`](mrt-ui-design-guardrails/README.md) | Interview + design-system brief before UI implementation. |
 | [`mrt-ui-polish-sourcing`](mrt-ui-polish-sourcing/README.md) | Source-aware UI polish: use outside libraries only when they solve a real gap. |
+| [`mrt-evidence-based-docs`](mrt-evidence-based-docs/README.md) | Generate evidence-based, file:line-cited docs (CLAUDE.md/AGENTS.md/CONTEXT.md, subsystems, ADRs) for a legacy repo via a multi-agent Workflow. |
 
 ## Status
 
-All 10 skills are working under Claude Code. Four required adaptation beyond a straight copy, because they relied on Codex-only mechanics (Codex Desktop's Projects registry, Codex-specific frontmatter/packaging conventions): `mrt-bootstrap-private-ai-project`, `mrt-register-with-ai-playground`, `mrt-skill-smoke-test`, `mrt-open-codex-project`. The rest moved over verbatim or with a one-line wording fix ("Codex" → "Claude" in trigger descriptions).
+All 11 skills are working under Claude Code. Of the 10 migrated from Codex CLI, four required adaptation beyond a straight copy, because they relied on Codex-only mechanics (Codex Desktop's Projects registry, Codex-specific frontmatter/packaging conventions): `mrt-bootstrap-private-ai-project`, `mrt-register-with-ai-playground`, `mrt-skill-smoke-test`, `mrt-open-codex-project`. The rest moved over verbatim or with a one-line wording fix ("Codex" → "Claude" in trigger descriptions). `mrt-evidence-based-docs` is native to Claude Code — authored directly against the Workflow multi-agent orchestration tool, not migrated.
 
 ## Project Memory
 
