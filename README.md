@@ -24,6 +24,7 @@ Mertcan, as the personal skill library backing his day-to-day Claude Code usage,
 |---|---|
 | [`mrt-bootstrap-private-ai-project`](mrt-bootstrap-private-ai-project/README.md) | Bootstrap/adopt a durable, private, GitHub-backed AI project with portable memory. |
 | [`mrt-register-with-ai-playground`](mrt-register-with-ai-playground/README.md) | Register a project into Mertcan's personal AI project registry. |
+| [`mrt-save-knowledge-gained`](mrt-save-knowledge-gained/README.md) | Save useful chat learnings into durable project Markdown for future AI sessions. |
 | [`mrt-skill-smoke-test`](mrt-skill-smoke-test/README.md) | Smoke-test another Claude Code skill's `SKILL.md` for validity and real usability. |
 | [`mrt-open-codex-project`](mrt-open-codex-project/README.md) | Reference note: Claude Code has no Codex-Desktop-Projects equivalent. |
 | [`mrt-feature-proof-auditor`](mrt-feature-proof-auditor/README.md) | Browser-screenshot proof that a requested feature actually works. |
@@ -36,7 +37,7 @@ Mertcan, as the personal skill library backing his day-to-day Claude Code usage,
 
 ## Status
 
-All 11 skills are working under Claude Code. Of the 10 migrated from Codex CLI, four required adaptation beyond a straight copy, because they relied on Codex-only mechanics (Codex Desktop's Projects registry, Codex-specific frontmatter/packaging conventions): `mrt-bootstrap-private-ai-project`, `mrt-register-with-ai-playground`, `mrt-skill-smoke-test`, `mrt-open-codex-project`. The rest moved over verbatim or with a one-line wording fix ("Codex" → "Claude" in trigger descriptions). `mrt-evidence-based-docs` is native to Claude Code — authored directly against the Workflow multi-agent orchestration tool, not migrated.
+All 12 skills are working under Claude Code. Of the 10 migrated from Codex CLI, four required adaptation beyond a straight copy, because they relied on Codex-only mechanics (Codex Desktop's Projects registry, Codex-specific frontmatter/packaging conventions): `mrt-bootstrap-private-ai-project`, `mrt-register-with-ai-playground`, `mrt-skill-smoke-test`, `mrt-open-codex-project`. The rest moved over verbatim or with a one-line wording fix ("Codex" → "Claude" in trigger descriptions). `mrt-evidence-based-docs` and `mrt-save-knowledge-gained` are native additions, not migrated.
 
 ## Project Memory
 
