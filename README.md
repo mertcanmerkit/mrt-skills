@@ -34,10 +34,11 @@ Mertcan, as the personal skill library backing his day-to-day Claude Code usage,
 | [`mrt-ui-design-guardrails`](mrt-ui-design-guardrails/README.md) | Interview + design-system brief before UI implementation. |
 | [`mrt-ui-polish-sourcing`](mrt-ui-polish-sourcing/README.md) | Source-aware UI polish: use outside libraries only when they solve a real gap. |
 | [`mrt-evidence-based-docs`](mrt-evidence-based-docs/README.md) | Generate evidence-based, file:line-cited docs (CLAUDE.md/AGENTS.md/CONTEXT.md, subsystems, ADRs) for a legacy repo via a multi-agent Workflow. |
+| [`mrt-portable-prompt`](mrt-portable-prompt/README.md) | Distill what you asked in a chat into a clean, self-contained prompt for another AI/session, minus the assistant's answers. |
 
 ## Status
 
-All 12 skills are working under Claude Code. Of the 10 migrated from Codex CLI, four required adaptation beyond a straight copy, because they relied on Codex-only mechanics (Codex Desktop's Projects registry, Codex-specific frontmatter/packaging conventions): `mrt-bootstrap-private-ai-project`, `mrt-register-with-ai-playground`, `mrt-skill-smoke-test`, `mrt-open-codex-project`. The rest moved over verbatim or with a one-line wording fix ("Codex" → "Claude" in trigger descriptions). `mrt-evidence-based-docs` and `mrt-save-knowledge-gained` are native additions, not migrated.
+All 13 skills are working under Claude Code. Of the 10 migrated from Codex CLI, four required adaptation beyond a straight copy, because they relied on Codex-only mechanics (Codex Desktop's Projects registry, Codex-specific frontmatter/packaging conventions): `mrt-bootstrap-private-ai-project`, `mrt-register-with-ai-playground`, `mrt-skill-smoke-test`, `mrt-open-codex-project`. The rest moved over verbatim or with a one-line wording fix ("Codex" → "Claude" in trigger descriptions). `mrt-evidence-based-docs`, `mrt-save-knowledge-gained`, and `mrt-portable-prompt` are native additions authored directly for Claude Code, not migrated.
 
 ## Project Memory
 
