@@ -1,51 +1,59 @@
 # mrt-skills
 
-## Overview
+A collection of [Agent Skills](https://code.claude.com/docs/en/skills) for [Claude Code](https://www.claude.com/product/claude-code). Each skill is a folder with a `SKILL.md` Claude Code auto-discovers, plus a human-facing `README.md`; some bundle `scripts/` and `references/`.
 
-A private collection of Mertcan's personal Claude Code skills, migrated from Codex CLI's personal skill library (`~/.codex/skills/`). Each skill lives in its own subfolder with a `SKILL.md` (the agent-facing skill definition Claude Code auto-discovers) and a `README.md` (human-facing documentation of what it does and why).
+Skills respond in your language (English by default). The `mrt-` prefix marks them as coming from this collection, so they never collide with other installed skills.
 
-## Value Proposition
+## Installation
 
-- Single source of truth and backup for skills that used to live only on one machine's `~/.codex/skills/`.
-- Documents what each skill does in plain language, separate from the agent-facing `SKILL.md` instructions.
-- Preserves the migration decisions — what was dropped, what was adapted, what has no equivalent, and why — so future sessions don't have to reverse-engineer them from a diff.
+Clone the repo and copy (or symlink) any skill folder into `~/.claude/skills/`:
 
-## Who It Is For
+```bash
+git clone https://github.com/mertcanmerkit/mrt-skills.git
+cp -R mrt-skills/mrt-portable-prompt ~/.claude/skills/
+```
 
-Mertcan, as the personal skill library backing his day-to-day Claude Code usage, and any future AI session that needs to understand why these skills look the way they do.
+Claude Code discovers them automatically — no plugin registration or restart needed.
 
-## Technical Overview
+## Skills
 
-- **Naming convention:** every skill is prefixed `mrt-` to distinguish personal skills from third-party or plugin-provided skills.
-- **Layout:** `mrt-<skill-name>/{SKILL.md, README.md, references/, scripts/}` — the same layout Claude Code auto-discovers under `~/.claude/skills/`. To install on a new machine, copy or clone each `mrt-<skill-name>/` folder into `~/.claude/skills/`.
-- **Provenance:** originally written as Codex CLI skills. Three Codex skills were deliberately excluded from this migration as third-party, not personal: `.system/` (Codex's own built-in skills — imagegen, openai-docs, plugin-creator, skill-creator, skill-installer), `hatch-pet` (Apache-2.0, depends on Codex's built-in `$imagegen`), and `motion-design` (MIT, authored by LottieFiles).
+### Project memory & handoff
 
-| Skill | What it does |
-|---|---|
-| [`mrt-bootstrap-private-ai-project`](mrt-bootstrap-private-ai-project/README.md) | Bootstrap/adopt a durable, private, GitHub-backed AI project with portable memory. |
-| [`mrt-register-with-ai-playground`](mrt-register-with-ai-playground/README.md) | Register a project into Mertcan's personal AI project registry. |
-| [`mrt-save-knowledge-gained`](mrt-save-knowledge-gained/README.md) | Save useful chat learnings into durable project Markdown for future AI sessions. |
-| [`mrt-skill-smoke-test`](mrt-skill-smoke-test/README.md) | Smoke-test another Claude Code skill's `SKILL.md` for validity and real usability. |
-| [`mrt-open-codex-project`](mrt-open-codex-project/README.md) | Reference note: Claude Code has no Codex-Desktop-Projects equivalent. |
-| [`mrt-feature-proof-auditor`](mrt-feature-proof-auditor/README.md) | Browser-screenshot proof that a requested feature actually works. |
-| [`mrt-trello-proof-card-closer`](mrt-trello-proof-card-closer/README.md) | Attach audit proof to Trello cards and move them to done. |
-| [`mrt-current-changes-issue-summary`](mrt-current-changes-issue-summary/README.md) | Turn current git changes into a Turkish GitHub-issue checklist. |
-| [`mrt-pre-push-gate`](mrt-pre-push-gate/README.md) | Pre-push test/doc hygiene gate for a specific Laravel project. |
-| [`mrt-ui-design-guardrails`](mrt-ui-design-guardrails/README.md) | Interview + design-system brief before UI implementation. |
-| [`mrt-ui-polish-sourcing`](mrt-ui-polish-sourcing/README.md) | Source-aware UI polish: use outside libraries only when they solve a real gap. |
-| [`mrt-evidence-based-docs`](mrt-evidence-based-docs/README.md) | Generate evidence-based, file:line-cited docs (CLAUDE.md/AGENTS.md/CONTEXT.md, subsystems, ADRs) for a legacy repo via a multi-agent Workflow. |
-| [`mrt-portable-prompt`](mrt-portable-prompt/README.md) | Distill what you asked in a chat into a clean, self-contained prompt for another AI/session, minus the assistant's answers. |
+For making AI-assisted work survive longer than one chat session.
 
-## Status
+- **[mrt-bootstrap-private-ai-project](mrt-bootstrap-private-ai-project/)** — Turn an idea, chat, or existing repo into a durable, private, GitHub-backed AI project with portable memory files (`AGENTS.md`, `ai-project.yaml`, docs, adapters for Claude/Cursor/Copilot).
+- **[mrt-register-with-ai-playground](mrt-register-with-ai-playground/)** — Record a project in your personal AI-projects registry repo: repo URL, local path, role, usage notes, read-first files.
+- **[mrt-save-knowledge-gained](mrt-save-knowledge-gained/)** — Distill a chat's useful knowledge (decisions, findings, rejected attempts, next steps) into the project's Markdown memory so a fresh session can continue.
+- **[mrt-portable-prompt](mrt-portable-prompt/)** — Restate everything you asked for in this conversation as one clean prompt for another AI — with the assistant's answers deliberately stripped out.
 
-All 13 skills are working under Claude Code. Of the 10 migrated from Codex CLI, four required adaptation beyond a straight copy, because they relied on Codex-only mechanics (Codex Desktop's Projects registry, Codex-specific frontmatter/packaging conventions): `mrt-bootstrap-private-ai-project`, `mrt-register-with-ai-playground`, `mrt-skill-smoke-test`, `mrt-open-codex-project`. The rest moved over verbatim or with a one-line wording fix ("Codex" → "Claude" in trigger descriptions). `mrt-evidence-based-docs`, `mrt-save-knowledge-gained`, and `mrt-portable-prompt` are native additions authored directly for Claude Code, not migrated.
+### Documentation
 
-## Project Memory
+- **[mrt-evidence-based-docs](mrt-evidence-based-docs/)** — Generate file:line-cited docs (`CLAUDE.md`, `AGENTS.md`, `CONTEXT.md`, subsystem deep-dives, ADRs) for a legacy repo via a parallel multi-agent workflow.
 
-Each skill's own `README.md` documents its specifics — frontmatter, bundled files, what changed during migration, and how to invoke it. Migration-level decisions that apply across the whole collection (what's third-party, what's Codex-only, what has no Claude Code equivalent) are recorded once here instead of repeated per skill.
+### Git & shipping
 
-## Next Steps
+- **[mrt-current-changes-issue-summary](mrt-current-changes-issue-summary/)** — Turn the current uncommitted changes into a boss-ready GitHub issue title plus checked checklist.
+- **[mrt-pre-push-gate](mrt-pre-push-gate/)** — User-invoked (`/mrt-pre-push-gate`): audit staged and unstaged diffs for test/doc hygiene against the project's own subsystem docs before a push.
 
-- To use these skills on a new machine: clone this repo and copy each `mrt-<skill-name>/` subfolder into `~/.claude/skills/`. Claude Code auto-discovers skills there — no plugin registration or restart required.
-- New skills added to this collection should follow the same layout (`SKILL.md` + `README.md`, `mrt-` prefix) and get added to the table above.
-- Run `mrt-skill-smoke-test` against any new or edited skill before considering it done.
+### Verification & proof
+
+- **[mrt-feature-proof-auditor](mrt-feature-proof-auditor/)** — Prove requested features actually work with real browser screenshots and a Done/Missing/Uncertain/Blocked audit matrix.
+- **[mrt-trello-proof-card-closer](mrt-trello-proof-card-closer/)** — Attach audit proof to matching Trello cards, tick them complete, and move them to the done list.
+
+### UI & design
+
+- **[mrt-ui-design-guardrails](mrt-ui-design-guardrails/)** — Interview + design-system pass that turns "make it beautiful" into an implementation-ready UI brief before any code.
+- **[mrt-ui-polish-sourcing](mrt-ui-polish-sourcing/)** — Source-aware UI polish: use existing project conventions first, pull in outside libraries only when they close a concrete gap.
+
+### Meta
+
+- **[mrt-skill-smoke-test](mrt-skill-smoke-test/)** — Smoke-test another skill: static probe of its `SKILL.md` plus one real, safe, minimal task.
+- **[mrt-open-codex-project](mrt-open-codex-project/)** — Reference note for Codex Desktop migrants: Claude Code has no "Projects" registry; here's the closest analogue.
+
+## Contributing
+
+New skills follow the same layout (`SKILL.md` + `README.md`, `mrt-` prefix) and get an entry above. Run `mrt-skill-smoke-test` against any new or edited skill before considering it done.
+
+## License
+
+[MIT](LICENSE)

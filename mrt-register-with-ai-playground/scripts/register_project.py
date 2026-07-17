@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Register a project in Mertcan Merkit AI Development Playground."""
+"""Register a project in the user's AI project registry repo."""
 
 from __future__ import annotations
 
@@ -8,10 +8,6 @@ import json
 import pathlib
 import re
 from datetime import datetime
-from zoneinfo import ZoneInfo
-
-
-DEFAULT_PLAYGROUND = pathlib.Path("/Users/mertcanmerkit/Documents/Mertcan Merkit AI Development Playground")
 
 
 def slugify(value: str) -> str:
@@ -56,7 +52,7 @@ def ensure_registered_projects_md(path: pathlib.Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         "# Registered Projects\n\n"
-        "Projects registered into Mertcan Merkit AI Development Playground.\n\n",
+        "Projects registered into this AI project registry.\n\n",
         encoding="utf-8",
     )
 
@@ -74,7 +70,7 @@ def upsert_project_block(path: pathlib.Path, slug: str, row: dict) -> None:
 - Role: {row['role']}
 - Repo: {row['repo_url']}
 - Local path: `{row['project_path']}`
-- Codex status: {row['codex_status']}
+- Status: {row['status']}
 - Last updated: {row['last_updated']}
 
 ### Read First
@@ -103,7 +99,7 @@ def append_system_registry(path: pathlib.Path, row: dict) -> None:
     lines = [line for line in content.splitlines() if not line.startswith(f"| {row['project_name']} |")]
     content = "\n".join(lines) + "\n"
     section = "\n## Registered Project Additions\n\n"
-    table_header = "| System | Role | GitHub URL | Local Codex Project Path | Read First | Dispatch Use |\n| --- | --- | --- | --- | --- | --- |\n"
+    table_header = "| System | Role | GitHub URL | Local Path | Read First | Dispatch Use |\n| --- | --- | --- | --- | --- | --- |\n"
     if "## Registered Project Additions" not in content:
         content = content.rstrip() + section + table_header
     read_first = ", ".join(f"`{item}`" for item in row["read_first"]) or "TBD"
@@ -117,17 +113,17 @@ def append_system_registry(path: pathlib.Path, row: dict) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--playground-path", default=str(DEFAULT_PLAYGROUND))
+    parser.add_argument("--registry-path", required=True)
     parser.add_argument("--project-name", required=True)
     parser.add_argument("--project-path", required=True)
     parser.add_argument("--repo-url", required=True)
     parser.add_argument("--role", required=True)
     parser.add_argument("--usage", required=True)
     parser.add_argument("--read-first", action="append", default=[])
-    parser.add_argument("--codex-status", default="unknown")
+    parser.add_argument("--status", default="active")
     args = parser.parse_args()
 
-    playground = pathlib.Path(args.playground_path).expanduser().resolve()
+    registry = pathlib.Path(args.registry_path).expanduser().resolve()
     row = {
         "project_name": args.project_name,
         "project_path": str(pathlib.Path(args.project_path).expanduser().resolve()),
@@ -135,15 +131,15 @@ def main() -> int:
         "role": args.role,
         "usage": args.usage,
         "read_first": args.read_first,
-        "codex_status": args.codex_status,
-        "last_updated": datetime.now(ZoneInfo("Europe/Istanbul")).strftime("%Y-%m-%d"),
+        "status": args.status,
+        "last_updated": datetime.now().astimezone().strftime("%Y-%m-%d"),
     }
     slug = slugify(args.project_name)
 
-    upsert_json(playground / "source_of_truth" / "registered_projects.json", row)
-    upsert_project_block(playground / "docs" / "10_registered_projects.md", slug, row)
-    append_system_registry(playground / "docs" / "06_ai_system_registry.md", row)
-    print(f"registered {args.project_name} in {playground}")
+    upsert_json(registry / "source_of_truth" / "registered_projects.json", row)
+    upsert_project_block(registry / "docs" / "10_registered_projects.md", slug, row)
+    append_system_registry(registry / "docs" / "06_ai_system_registry.md", row)
+    print(f"registered {args.project_name} in {registry}")
     return 0
 
 

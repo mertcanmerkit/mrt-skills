@@ -1,6 +1,6 @@
 ---
 name: mrt-feature-proof-auditor
-description: Produce browser screenshot evidence for feature audits. Use when the user asks Claude to verify git changes, review implemented feature requests, inspect thread/chat screenshots, compare requested outcomes with a running app, or return proof screenshots that requested features work. Triggers include git changes denetle, thread screenshotlarindan istekleri kontrol et, ozellikler calisiyor mu browser screenshot ile kanitla, and similar audit/proof requests.
+description: Produce browser screenshot evidence for feature audits. Use when the user wants proof screenshots that requested features actually work, wants git changes or a PR verified against the running app, or supplies thread/chat screenshots of requests to check against what the app really does.
 ---
 
 # Feature Proof Auditor
@@ -16,7 +16,7 @@ Use repo facts first, then browser evidence. Keep the skill project-neutral: dis
 1. Build the request inventory.
    - Read user-provided screenshots, thread titles, final answers, git status/diff/logs, PR text, or commit messages.
    - Create an audit matrix with `id`, `requested`, `evidence page`, `status`, and `screenshot`.
-   - Use statuses: `Tamam`, `Eksik`, `Şüpheli`, `Bloklandı`.
+   - Use statuses: `Done`, `Missing`, `Uncertain`, `Blocked`.
 
 2. Discover the app safely.
    - Inspect README, package manifests, framework configs, docker/dev docs, routes, and tests.
@@ -35,7 +35,7 @@ Use repo facts first, then browser evidence. Keep the skill project-neutral: dis
 4. Handle state and blockers.
    - Do not run migrations, seeders, destructive commands, or production-affecting actions without explicit user approval.
    - If temporary demo state is unavoidable, back it up first, explain the change, and restore it before the final response.
-   - If browser navigation is blocked, data is missing, auth is unavailable, or the feature cannot be proven, mark the row `Bloklandı` or `Şüpheli` and say why.
+   - If browser navigation is blocked, data is missing, auth is unavailable, or the feature cannot be proven, mark the row `Blocked` or `Uncertain` and say why.
 
 5. Return the audit.
    - Keep the final response short and in the user's language.
@@ -67,7 +67,7 @@ Example manifest:
 Run:
 
 ```bash
-node /Users/mertcanmerkit/.claude/skills/mrt-feature-proof-auditor/scripts/capture-browser-evidence.mjs \
+node ~/.claude/skills/mrt-feature-proof-auditor/scripts/capture-browser-evidence.mjs \
   --base-url http://127.0.0.1:8000 \
   --out ~/Desktop/feature-proof-audit-$(date +%Y-%m-%d-%H%M) \
   --manifest /path/to/manifest.json
@@ -80,4 +80,4 @@ Add `--chrome "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"` wh
 - Screenshot evidence must correspond to the requested feature, not just a nearby page.
 - A green audit row needs either visible UI proof or a directly observable browser result.
 - Code markers, tests, curl responses, and thread final answers can support the conclusion but should not replace browser proof when the user asked for screenshots.
-- Never hide uncertainty. Use `Şüpheli` when the page loads but the observed behavior is incomplete or indirect.
+- Never hide uncertainty. Use `Uncertain` when the page loads but the observed behavior is incomplete or indirect.

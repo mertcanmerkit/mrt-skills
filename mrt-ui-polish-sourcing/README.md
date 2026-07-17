@@ -20,7 +20,7 @@ UI/frontend work (fixing, redesigning, polishing) where the goal is to avoid "ge
 
 ## Status
 
-Working. Adapted from Codex: only the description wording changed ("Use when Codex works on..." → "Use when Claude works on...").
+Working.
 
 ## Project Memory
 

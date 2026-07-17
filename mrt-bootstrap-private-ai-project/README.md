@@ -17,7 +17,7 @@ Most AI work gets weaker when it lives only in chat: the working style, project 
 
 ## Who It Is For
 
-Mertcan, for any new or existing AI-assisted project he wants to survive longer than one chat session — solo work or multi-agent/master-specialist workflows.
+Anyone who wants an AI-assisted project — solo or multi-agent — to survive longer than one chat session.
 
 ## Technical Overview
 
@@ -30,7 +30,7 @@ Mertcan, for any new or existing AI-assisted project he wants to survive longer 
 
 ## Status
 
-Working, adapted from Codex — this was the heaviest migration in the mrt-skills collection. Removed entirely: `scripts/register_codex_project.py` and the two reference docs describing Codex Desktop's "Projects" registration flow (`codex_project_registration.md`, `codex_thread_handoff.md`) — that mechanic has no Claude Code equivalent. The session-handoff step was reframed as "open the folder in Claude Code and read `docs/02_session_handoff_prompt.md`," with no separate registration step required. Self-validated against this Claude Code copy: `scripts/quick_validate.py` passes, and a full scaffold smoke test (new project + existing-project adoption) passes.
+Working. Self-validated: `scripts/quick_validate.py` passes, and a full scaffold smoke test (new project + existing-project adoption) passes.
 
 ## Project Memory
 

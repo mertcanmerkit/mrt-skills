@@ -7,26 +7,16 @@ description: Bootstrap or adopt a durable, private, GitHub-backed AI project fro
 
 ## Core Defaults
 
-- Treat GitHub visibility as private unless the user explicitly says public.
-- Private by default applies to every repo, remote, artifact, and handoff unless the user explicitly says public.
+- Private by default: treat GitHub visibility as private for every repo, remote, artifact, and handoff unless the user explicitly says public.
 - Preserve continuity as a first-class deliverable: write project memory before implementation work.
 - Keep source-of-truth, working notes, and handoff prompts inside the repo.
-- Always create an explanatory `README.md` that supports both technical onboarding and marketing/product positioning.
-- Always create standard portable agent instructions in `AGENTS.md`.
-- Always create compatibility adapters for Claude, Cursor, and GitHub Copilot that delegate to `AGENTS.md`.
-- Always create a machine-readable `ai-project.yaml` manifest for read order, privacy, validation, freshness, and active project state.
-- Always create `scripts/ai_project_check.py` so generated projects can verify required memory files, stale memory, common secret patterns, and GitHub privacy.
+- Always create the full project memory set listed under Required Project Memory, via `scripts/scaffold_private_ai_project.py`.
 - Support both new bootstrap and existing-project adoption. If a repo, folder, or prior chat already exists, preserve it and add missing project memory instead of treating it as blank.
-- Preserve cross-AI orchestration knowledge when the user works across specialist AI systems, chats, or triads.
-- Preserve master-orchestrator doctrine: master threads synthesize and dispatch; specialist threads execute bounded production work; durable docs absorb decisions.
-- For serious production coding, preserve `Lead + Issue Worker + CI Gate`: the master sets priority and gates, platform leads split/review GitHub Issues, issue workers own exactly one issue/branch/PR, and CI is the objective merge gate.
-- Preserve controlled parallelism: default to at most 2 implementation issue workers plus 1 research/gate worker, require a dependency map before dispatch, and default to sequential work when conflict risk is unclear.
+- When the user works across multiple AI systems or master/specialist threads, preserve cross-AI orchestration knowledge via the orchestration sections below and their reference files.
 - Preserve provider portability: any coding agent should be able to start from `AGENTS.md`, `ai-project.yaml`, and the compatibility adapter files without a tool-specific registration step.
 - Treat memory freshness as part of done: update manifest, handoff, validation, and freshness docs after meaningful changes.
-- Treat AI design tools such as Google Stitch as exploration inputs, not production truth. When a project uses Stitch, preserve project IDs, screen IDs, accepted versions, prompts, and current/archived status in `source_of_truth/stitch-map.md` instead of relying on canvas position or "latest" guesses.
-- For Google Stitch model choice, default to the highest available usable model, practically Pro. Use Flash models only when the user explicitly says to use Flash for Stitch. Project labels such as MVP, prototype, quick draft, or low importance are not enough to choose Flash by inference.
-- Speak to the user as a master AI operator: direct, technical, pragmatic, and focused on durable leverage.
-- Do not leave the work as a plan when tools can execute the setup.
+- Treat AI design tools as exploration inputs, not production truth (see AI Design Tool Discipline below).
+- Speak to the user as a master AI operator: direct, technical, pragmatic. Do not leave the work as a plan when tools can execute the setup.
 
 ## Workflow
 

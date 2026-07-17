@@ -1,6 +1,6 @@
 ---
 name: mrt-save-knowledge-gained
-description: Capture and persist the knowledge gained in a chat into related project Markdown files so future AI sessions can continue with the right product vision. Use when Mertcan says phrases like "save the knowledge gained", "knowledge gained on this chat", "save chat knowledge to MD files", "continue developing this product with proper vision", or asks to preserve useful requirements, decisions, research findings, rejected attempts, bugs, next steps, handoff prompts, or source-of-truth IDs from a current or old AI chat.
+description: Capture and persist the knowledge gained in a chat into related project Markdown files so future AI sessions can continue with the right product vision. Use when the user says phrases like "save the knowledge gained", "knowledge gained on this chat", "save chat knowledge to MD files", "continue developing this product with proper vision", or asks to preserve useful requirements, decisions, research findings, rejected attempts, bugs, next steps, handoff prompts, or source-of-truth IDs from a current or old AI chat.
 ---
 
 # Save Knowledge Gained
@@ -9,12 +9,10 @@ description: Capture and persist the knowledge gained in a chat into related pro
 
 Turn useful chat context into durable repo memory. The output should help a fresh AI session understand the project without rereading the full chat.
 
-Two recurring meanings from Mertcan's prior Codex chats:
+Two recurring cases:
 
-- `019ed13a-afea-7752-af21-dfd3eed622f0`: the chat output was bad, but the requirements, prompts, design direction, and answered questions were valuable. Preserve the useful brief; mark failed output as rejected.
-- `019e91db-0404-7fd2-8b78-9cb4b4c5b67e`: the chat contained device/product findings, decisions, bugs, and next steps that must be saved into MD files so a fresh session can continue.
-
-Use those IDs as semantic anchors. Do not open them unless the user explicitly asks or the current task needs old-chat evidence.
+- The chat's output was bad, but the requirements, prompts, design direction, and answered questions are valuable. Preserve the useful brief; mark the failed output as rejected.
+- The chat contains findings, decisions, bugs, and next steps that must be saved into MD files so a fresh session can continue.
 
 ## Defaults
 
@@ -70,7 +68,7 @@ Use those IDs as semantic anchors. Do not open them unless the user explicitly a
    - Run `python3 scripts/ai_project_check.py` if present.
    - Run project-specific docs/validation checks if documented.
    - Search changed files for obvious secrets before commit or push.
-   - If pushing, verify the GitHub repo is private unless Mertcan explicitly asked for public.
+   - If pushing, verify the GitHub repo is private unless the user explicitly asked for public.
 
 ## Output Shape
 

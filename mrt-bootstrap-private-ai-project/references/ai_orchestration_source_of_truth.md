@@ -4,7 +4,7 @@ Use this reference when a project needs master/specialist orchestration rules, b
 
 ## Placement Rule
 
-Store global orchestration doctrine in the user's master AI control-plane repo when one exists. For Mertcan, that is Mertcan Merkit AI Development Playground.
+Store global orchestration doctrine in the user's master AI control-plane repo when one exists (for example, a personal AI playground/registry repo).
 
 Also copy the applicable project-local rules into each bootstrapped project so the project remains usable when the playground is not in context.
 

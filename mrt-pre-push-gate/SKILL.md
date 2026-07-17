@@ -1,6 +1,7 @@
 ---
 name: mrt-pre-push-gate
-description: Use ONLY when user runs /pre-push or says "pre-push check", "before push", "check tests docs", or "gate check". Audit staged + unstaged diffs for this Laravel multi-tenant project and report only required test/doc hygiene actions.
+description: Audit staged and unstaged git diffs for test and documentation hygiene before a push, and report only the required actions — no fluff, at most one question. Run with /mrt-pre-push-gate before pushing.
+disable-model-invocation: true
 ---
 
 # Pre-push gate check
@@ -17,11 +18,7 @@ Audit current git changes for test and documentation hygiene with maximum token 
 4. Only add/update tests when:
    - Related tests already exist for the changed code (found via grep/glob in `tests/`), AND
    - The change logically requires test updates (e.g. schema key additions that break hardcoded counts or assertions).
-5. Respect project conventions when evaluating risk:
-   - multi-tenant scope (`ShopScope`, `getShopId()`, `getShopDomain()`)
-   - cache key discipline (`getCacheKey()`)
-   - no `dd()`, `dump()`, `die()`, debug logs in production code
-   - no `Artisan::call('cache:clear')` in production paths
+5. Evaluate risk against the project's own conventions: read `CLAUDE.md`, `AGENTS.md`, or contributing docs for rules to enforce (e.g. tenancy scoping, cache-key discipline). Always flag leftover debug output (`dd()`, `dump()`, `die()`, `console.log`, `debugger`, debug logs) and cache-clearing calls in production code paths.
 6. Never push. Never run `git push` unless user clearly and explicitly says to push.
 
 ## What to do
@@ -31,33 +28,19 @@ Audit current git changes for test and documentation hygiene with maximum token 
 Run:
 
 ```bash
-git diff --stat -- ':!_abandoned/' ':!_backup/' ':!.DS_Store'
-git diff --cached --stat -- ':!_abandoned/' ':!_backup/' ':!.DS_Store'
-git diff --name-only -- ':!_abandoned/' ':!_backup/' ':!.DS_Store'
-git diff --cached --name-only -- ':!_abandoned/' ':!_backup/' ':!.DS_Store'
+git diff --stat
+git diff --cached --stat
+git diff --name-only
+git diff --cached --name-only
 ```
 
-For each modified file, classify by subsystem using project docs in root:
+Ignore archived/backup directories the project conventionally excludes (e.g. `_abandoned/`, `_backup/`).
 
-- `CHECKOUT-ORDER-SYSTEM.md`
-- `PAYMENT-SYSTEM.md`
-- `CAMPAIGN-SYSTEM.md`
-- `PRICE-DISPLAY-SYSTEM.md`
-- `PRODUCT-SEARCH-SYSTEM.md`
-- `CACHE-SYSTEM.md`
-- `AI-CHAT-SYSTEM.md`
-- `ERP-INTEGRATION-SYSTEM.md`
-- `HELPERS-SYSTEM.md`
-- `ADMIN-SYSTEM.md`
-- `USER-SYSTEM.md`
-- `CONTENT-SYSTEM.md`
-- `NOTIFICATIONS-SYSTEM.md`
-- `FRONTEND-SYSTEM.md`
-- `CUSTOM-ASSETS-SYSTEM.md`
-- `MEDIA-SYSTEM.md`
-- `RETURN-REFUND-SYSTEM.md`
-- `TENANT-SYSTEM.md`
-- `TESTING-SYSTEM.md`
+For each modified file, classify by subsystem using the project's own documentation, checked in this order:
+
+1. Subsystem docs at the repo root (e.g. `*-SYSTEM.md`) or under `docs/subsystems/`.
+2. A subsystem/doc map in `CLAUDE.md` or `AGENTS.md`.
+3. If no subsystem docs exist, group changes by top-level module or folder and note that no doc mapping exists.
 
 ### B) For each subsystem with changes
 

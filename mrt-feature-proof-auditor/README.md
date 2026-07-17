@@ -17,11 +17,11 @@ Verifying implemented feature requests before reporting them done — to a boss/
 - Frontmatter: `name: mrt-feature-proof-auditor`.
 - `scripts/capture-browser-evidence.mjs`: optional deterministic screenshot batch runner (Playwright-based), driven by a JSON manifest (`url`, `viewport`, `waitMs`, `scrollText`, `fullPage`).
 - Workflow: build a request inventory → discover the app (README/package manifests/routes) → collect screenshots, preferring to reuse an existing dev server → handle state/blockers conservatively → return a compact table with screenshot paths.
-- Status vocabulary: `Tamam` / `Eksik` / `Şüpheli` / `Bloklandı`.
+- Status vocabulary: `Done` / `Missing` / `Uncertain` / `Blocked`.
 
 ## Status
 
-Working. Adapted from Codex: description wording changed ("asks Codex" → "asks Claude"), and the example script invocation path updated to `~/.claude/skills/mrt-feature-proof-auditor/scripts/...`.
+Working.
 
 ## Project Memory
 
@@ -29,4 +29,4 @@ No persistent registry. Screenshots save outside the repo by default at `~/Deskt
 
 ## Next Steps
 
-Trigger with "verify these changes with screenshots", "prove this feature works", or Turkish equivalents ("git changes denetle", "ozellikler calisiyor mu browser screenshot ile kanitla"). Requires a running or startable local dev server and a browser (in-app Browser tool, or Playwright + Chrome).
+Trigger with "verify these changes with screenshots" or "prove this feature works". Requires a running or startable local dev server and a browser (in-app Browser tool, or Playwright + Chrome).

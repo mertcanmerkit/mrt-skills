@@ -1,6 +1,6 @@
-# Playground Contract
+# Registry Contract
 
-The playground is the canonical registry for Mertcan's AI project network.
+The registry ("playground") is the canonical index of the user's AI project network.
 
 ## Required Fields
 
@@ -12,7 +12,7 @@ Every registered project should have:
 - local path
 - read-first files
 - usage/dispatch notes
-- Codex Project status
+- status
 - last updated date
 
 For design or Google Stitch-aware projects, include the durable design-control files in read-first entries when they exist:
@@ -23,7 +23,7 @@ For design or Google Stitch-aware projects, include the durable design-control f
 
 Usage notes for Stitch-aware projects must say that agents should use the recorded Stitch project/screen IDs and must not infer the current design from canvas position, generation order, or a vague "latest" label.
 
-Usage notes must also preserve Mertcan's model-selection rule: use the highest available usable Google Stitch model by default, practically Pro. Use Flash only when Mertcan explicitly says to use Flash for Google Stitch. Do not infer Flash from project labels such as MVP, prototype, quick draft, early version, cheap, or low importance.
+Usage notes must also preserve the model-selection rule: use the highest available usable Google Stitch model by default, practically Pro. Use Flash only when the user explicitly says to use Flash for Google Stitch. Do not infer Flash from project labels such as MVP, prototype, quick draft, early version, cheap, or low importance.
 
 ## Registry Files
 
@@ -33,4 +33,4 @@ Usage notes must also preserve Mertcan's model-selection rule: use the highest a
 
 ## Privacy
 
-Only private GitHub links should be added unless Mertcan explicitly says public.
+Only private GitHub links should be added unless the user explicitly says public.

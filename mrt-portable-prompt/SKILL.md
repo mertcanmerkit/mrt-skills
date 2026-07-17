@@ -76,26 +76,27 @@ Drop the "starting assumptions" block if the user offered none.
 
 ## Example (compressed)
 
-A thread asked, across several messages, for a product-naming verdict, name ideas within App Store limits, live Google Trends data with no invented numbers, a free evocative `.com` checked without front-running registrars, and a buyer-outreach plan — and the user disliked the assistant's answers.
+A thread asked, across several messages, for a product-naming verdict, name ideas within App Store limits, live search-trend data with no invented numbers, a free brandable `.com` checked without front-running registrars, and a buyer-outreach plan — and the user disliked the assistant's answers.
 
 Ported prompt (assistant's names, numbers, and domains all removed; the user's constraints kept):
 
 ```text
-I'm building a macOS app that controls Govee LED lights over LAN. I sell it via
-Lemon Squeezy and may also publish to the Mac App Store.
+I'm building a macOS menu-bar app that tracks how much time I spend in meetings.
+I sell it directly from my site and may also publish to the Mac App Store.
 
 I want you to help me name and position it. Be direct, and push back if I'm wrong.
 
-My starting keyword guess — evaluate it, don't just accept it: govee, led, mac, lan.
+My starting keyword guess — evaluate it, don't just accept it: meeting, time,
+focus, calendar.
 
 What I want:
-1. A verdict on a generic/own-brand "... for Govee" name vs. a Govee-adjacent name.
+1. A verdict on a descriptive name vs. an invented brand name.
 2. Name + subtitle ideas within App Store limits (name <=30 chars, subtitle <=30,
    keyword field <=100), with exact character counts.
 3. Whether "Mac" belongs in the name or subtitle.
-4. Real Google Trends data pulled live — do not invent numbers; if you can't get
+4. Real search-trend data pulled live — do not invent numbers; if you can't get
    it, say so.
-5. A free, evocative .com, checked via RDAP or WHOIS (no front-running registrar
+5. A free, brandable .com, checked via RDAP or WHOIS (no front-running registrar
    search boxes); .com only, and no get-/try-/-app modifier domains.
 6. How to reach my buyers naturally and with low effort.
 ```

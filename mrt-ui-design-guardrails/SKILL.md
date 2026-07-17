@@ -7,18 +7,18 @@ description: Use when starting a new UI/frontend/product design project or impro
 
 ## Purpose
 
-Use this skill to turn UI intent into a coherent, domain-appropriate design direction before implementation. Treat Mertcan as a master AI operator: be direct about tradeoffs, ask decision-making questions when intent is missing, and preserve reusable UI doctrine in project docs when the work becomes durable.
+Use this skill to turn UI intent into a coherent, domain-appropriate design direction before implementation. Be direct about tradeoffs, ask decision-making questions when intent is missing, and preserve reusable UI doctrine in project docs when the work becomes durable.
 
 ## First Decision: New Request Or Existing Project
 
 Classify the context before producing any implementation output:
 
-- **Empty or vague new request**: If the user only invokes the skill or asks to start a new UI/design prompt without a concrete product request, reply exactly `Ne istiyorsunuz?` and nothing else.
+- **Empty or vague new request**: If the user only invokes the skill or asks to start a new UI/design prompt without a concrete product request, reply exactly `What do you want to build?` (in the user's language) and nothing else.
 - **Concrete new request**: If the user already described the product, summarize the intent in plain language, then interview in small batches until the brief is specific enough.
 - **Existing project**: Inspect the repo before asking taste or implementation questions. Use non-mutating commands only until the desired direction is clear.
 - **Direct audit request**: If the user asks whether an existing UI follows these rules, produce an improvement audit rather than a new-project interview.
 
-Operate at master-AI-operator level. Ask decision-quality questions about product intent, taste, constraints, and implementation tradeoffs.
+Ask decision-quality questions about product intent, taste, constraints, and implementation tradeoffs.
 
 ## Existing Project Inspection
 
@@ -45,7 +45,7 @@ Clarify:
 - information architecture, key sections, workflows, CTAs, forms, tables, charts, search, filters
 - desktop/mobile priority and responsive behavior
 - motion expectations and where motion should not be used
-- final output: design brief, improvement audit, Codex/Cursor prompt, Figma brief, implementation plan, or code-ready handoff
+- final output: design brief, improvement audit, coding-agent prompt (Claude Code, Cursor, etc.), Figma brief, implementation plan, or code-ready handoff
 
 ## Design Rules
 

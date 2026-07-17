@@ -20,7 +20,7 @@ Any new UI/frontend/product design project, especially React + shadcn/ui + Tailw
 
 ## Status
 
-Working, unchanged from the original Codex skill. No Codex-specific mechanics were found — the one "Codex/Cursor prompt" mention is just an optional output-format label and was left as-is.
+Working.
 
 ## Project Memory
 

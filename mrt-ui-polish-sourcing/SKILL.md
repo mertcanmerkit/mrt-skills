@@ -1,13 +1,6 @@
 ---
 name: mrt-ui-polish-sourcing
-description: >-
-  Use when Claude works on frontend/UI design, UI fixing, redesign, polishing,
-  "make it beautiful/professional", landing pages, dashboards,
-  React/Tailwind/shadcn interfaces, or avoiding generic AI-looking UI. Apply a
-  source-aware UI workflow: inspect existing project conventions first, extract
-  or define a coherent design direction, and selectively consider third-party UI
-  libraries, themes, components, typography, motion, layouts, and inspiration
-  only when they fit the user's constraints and the current stack.
+description: Use when Claude works on frontend/UI design, UI fixing, redesign, polishing, "make it beautiful/professional", landing pages, dashboards, React/Tailwind/shadcn interfaces, or avoiding generic AI-looking UI. Apply a source-aware UI workflow - inspect existing project conventions first, extract or define a coherent design direction, and selectively consider third-party UI libraries, themes, components, typography, motion, layouts, and inspiration only when they fit the user's constraints and the current stack.
 ---
 
 # UI Polish Sourcing
@@ -62,8 +55,8 @@ Read `references/ui-sources.md` only when choosing or comparing outside UI sourc
 
 ## Coordination With Other Skills
 
-- Use `ui-design-guardrails` when the request needs deeper product/design interviewing, a formal UI brief, or a broader design-system plan.
-- Use `motion-design` when the work specifically depends on motion timing, easing, choreography, or complex animation craft.
+- Use `mrt-ui-design-guardrails` when the request needs deeper product/design interviewing, a formal UI brief, or a broader design-system plan.
+- If a dedicated motion-design skill is installed (e.g. LottieFiles' `motion-design`, not bundled in this collection), use it when the work specifically depends on motion timing, easing, choreography, or complex animation craft.
 - This skill supplies sourcing judgment and the "when needed" library/inspiration mindset.
 
 ## Output Expectations

@@ -28,4 +28,4 @@ None. It performs no actions and touches no files or state.
 
 ## Next Steps
 
-Read it when Claude gives an unexpected answer to "open this as a project" or "show this folder under Projects" — it explains why. The original Codex-side skill (`codex app <path>`) still works unchanged from Codex itself.
+Read it when Claude gives an unexpected answer to "open this as a project" or "show this folder under Projects" — it explains why. If you still use Codex Desktop, `codex app <path>` continues to work there.

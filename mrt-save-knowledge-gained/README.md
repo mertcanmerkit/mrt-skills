@@ -6,7 +6,7 @@ Captures the useful knowledge from an AI chat and writes it into durable project
 
 ## When to use it
 
-Use it when Mertcan says phrases like:
+Use it when you say phrases like:
 
 - "save the knowledge gained"
 - "knowledge gained on this chat"

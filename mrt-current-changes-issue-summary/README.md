@@ -2,7 +2,7 @@
 
 ## Overview
 
-Turns the repository's current git changes (staged, unstaged, and untracked) into a short, Turkish-language, GitHub-compatible issue checklist, with an issue title naming the two most important work items.
+Turns the repository's current git changes (staged, unstaged, and untracked) into a short, GitHub-compatible issue checklist, with an issue title naming the two most important work items.
 
 ## Value Proposition
 
@@ -10,7 +10,7 @@ Saves the "what did I do today" recap for a boss/PM — no manual changelog writ
 
 ## Who It Is For
 
-Mertcan's day-to-day workflow: reporting current-session work in Turkish. Anyone on his team who consumes GitHub-issue-style status updates.
+End-of-day status reporting to a boss/PM in GitHub-issue form, in whatever language you work in (English by default — the summary follows your conversation language).
 
 ## Technical Overview
 
@@ -21,7 +21,7 @@ Mertcan's day-to-day workflow: reporting current-session work in Turkish. Anyone
 
 ## Status
 
-Working, unchanged from the original Codex skill. No Codex-specific mechanics were found, so it moved over verbatim — only the frontmatter `name:` gained the `mrt-` prefix.
+Working.
 
 ## Project Memory
 
@@ -29,4 +29,4 @@ No external state. Every run is self-contained: it reads the current git working
 
 ## Next Steps
 
-Trigger with phrases like "mevcut changesler", "boss için özet", "issue başlığı çıkar", "what did I do today", or explicitly: `Use mrt-current-changes-issue-summary`.
+Trigger with phrases like "what did I do today", "summary for my boss", "issue title for current changes", or explicitly: `Use mrt-current-changes-issue-summary`.

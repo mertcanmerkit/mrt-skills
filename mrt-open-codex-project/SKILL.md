@@ -17,6 +17,6 @@ Running `claude` inside a project directory is the whole story: Claude Code pers
 
 ## If The User Actually Wants Codex Desktop Registration
 
-This is a reference note, not a functioning port — the underlying mechanic doesn't exist in Claude Code, so there's nothing to execute here. The original Codex-side skill (`codex app /absolute/project/path`) still works unchanged from Codex itself; it just has no Claude Code analogue to run instead.
+This is a reference note, not a functioning port — the underlying mechanic doesn't exist in Claude Code, so there's nothing to execute here. If you still use Codex Desktop, `codex app <path>` continues to work there; there is simply no Claude Code analogue to run instead.
 
 Report this limitation plainly rather than fabricating a Claude Code "project registration" step.

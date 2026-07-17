@@ -10,7 +10,7 @@ Catches "this skill looks fine but doesn't actually trigger or work" before ship
 
 ## Who It Is For
 
-Mertcan, when authoring or editing any Claude Code skill (including the other 9 skills in this repo).
+Anyone authoring or editing Claude Code skills — including every other skill in this collection.
 
 ## Technical Overview
 
@@ -20,7 +20,7 @@ Mertcan, when authoring or editing any Claude Code skill (including the other 9 
 
 ## Status
 
-Adapted from Codex: wording updated ("Codex skill" → "Claude Code skill" throughout, `$target-skill-name` invocation syntax → `/target-skill-name`, script paths updated). The probe script's actual validation logic needed no changes — it only ever checked generic `name`/`description` frontmatter, never Codex-only fields.
+Working.
 
 ## Project Memory
 

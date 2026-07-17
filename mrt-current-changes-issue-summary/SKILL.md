@@ -1,13 +1,13 @@
 ---
 name: mrt-current-changes-issue-summary
-description: Summarize only the repository's current git changes as a concise Turkish, GitHub-compatible checked issue checklist with an issue title containing the two most important work items. Use when the user asks for "mevcut changesler", "gerekli formatta dönüş", "boss/patron için özet", "GitHub checkbox liste", "issue başlığı", "what did I do today", or asks for screenshots proving the current local changes. Also use for screenshot-pack requests tied to changed features.
+description: Summarize only the repository's current uncommitted git changes as a GitHub-ready issue - a title naming the two most important work items plus a checked checklist. Use when the user asks what they changed or did today, wants a boss/PM-ready status update of the working tree, wants current changes as a GitHub checkbox list, or asks for screenshots proving the current local changes.
 ---
 
 # Current Changes Issue Summary
 
 ## Goal
 
-Produce a boss-ready, human-readable Turkish summary for the current working tree only. Default output is a GitHub issue title plus checked checklist.
+Produce a boss-ready, human-readable summary for the current working tree only. Default output is a GitHub issue title plus checked checklist.
 
 ## Hard Rules
 
@@ -18,7 +18,7 @@ Produce a boss-ready, human-readable Turkish summary for the current working tre
 - Do not include noisy files such as `.DS_Store`, cache, local lens/config, or generated metadata unless they materially explain the change.
 - Do not claim tests were run unless you actually ran them in this turn.
 - Keep output concise: usually 5-10 checked bullets.
-- Write in Turkish.
+- Write in the language the user is conversing in; default to English.
 
 ## Investigation Workflow
 
@@ -50,9 +50,9 @@ Then inspect only the diffs needed to understand the main themes:
 - If there are no current changes, output:
 
 ```markdown
-**Issue Başlığı:** Mevcut Git Değişikliği Yok
+**Issue Title:** No Current Git Changes
 
-- [x] Şu anda raporlanacak changed dosya bulunmuyor.
+- [x] No changed files to report right now.
 ```
 
 ## Output Format
@@ -60,12 +60,12 @@ Then inspect only the diffs needed to understand the main themes:
 Default final answer:
 
 ```markdown
-**Issue Başlığı:** En Önemli İş 1 ve En Önemli İş 2
+**Issue Title:** Top Work Item 1 and Top Work Item 2
 
-- [x] Kilit iş 1 kısa özeti.
-- [x] Kilit iş 2 kısa özeti.
-- [x] Kilit iş 3 kısa özeti.
-- [x] Test/dokümantasyon/config notu, varsa.
+- [x] Short summary of key work item 1.
+- [x] Short summary of key work item 2.
+- [x] Short summary of key work item 3.
+- [x] Test/documentation/config note, if any.
 ```
 
 Do not add a long explanation after the checklist.
@@ -83,11 +83,11 @@ When the user asks for screenshots tied to the current changes:
 - Final output should include the normal issue checklist plus short screenshot links/list:
 
 ```markdown
-**Ekran Görüntüleri**
+**Screenshots**
 
-[Klasör](/absolute/path)
+[Folder](/absolute/path)
 [ZIP](/absolute/path.zip)
 
-- [x] Screenshot 1 kısa adı
-- [x] Screenshot 2 kısa adı
+- [x] Screenshot 1 short name
+- [x] Screenshot 2 short name
 ```
