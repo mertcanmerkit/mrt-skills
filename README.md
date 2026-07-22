@@ -28,7 +28,8 @@ For making AI-assisted work survive longer than one chat session.
 
 ### Documentation
 
-- **[mrt-evidence-based-docs](mrt-evidence-based-docs/)** — Generate file:line-cited docs (`CLAUDE.md`, `AGENTS.md`, `CONTEXT.md`, subsystem deep-dives, ADRs) for a legacy repo via a parallel multi-agent workflow.
+- **[mrt-evidence-based-docs](mrt-evidence-based-docs/)** — Generate file:line-cited docs (`CLAUDE.md`, `AGENTS.md`, `CONTEXT.md`, subsystem deep-dives, ADRs) for an undocumented / legacy repo via a parallel multi-agent workflow.
+- **[mrt-evidence-based-docs-reconcile](mrt-evidence-based-docs-reconcile/)** — The sibling for repos that *already* have those docs: verify every claim against the current code, correct drift, fill gaps, and preserve human-authored prose — never blind-overwrite.
 
 ### Git & shipping
 
