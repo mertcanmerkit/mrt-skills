@@ -1,6 +1,6 @@
 ---
 name: mrt-prove-then-fix
-description: Deterministically prove a claimed bug before touching any code, then fix it TDD-style without breaking any current behavior, and close with a fixed-schema deterministic report. Use when the user reports a suspected bug ("a client claims…", "sometimes X happens", "it jumped from 24 to 1200"), wants a bug verified with data before any code change, says "prove it, don't assume", or wants a fix guaranteed not to alter existing tests or behavior. Do NOT use for feature work, or when the bug already has a reliable failing test — jump straight to the fix there.
+description: Deterministically prove a claimed bug before touching any code, then fix it TDD-style without breaking any current behavior, and close with a fixed-schema deterministic report. Use when the user reports a suspected bug ("a client claims…", "sometimes X happens", "the number changed on its own"), wants a bug verified with data before any code change, says "prove it, don't assume", or wants a fix guaranteed not to alter existing tests or behavior. Do NOT use for feature work, or when the bug already has a reliable failing test — jump straight to the fix there.
 ---
 
 # Prove, Then Fix

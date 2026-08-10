@@ -30,7 +30,7 @@ After all problem blocks, exactly one shared closing section:
 ## Determinism rules
 
 - Every statement must trace to session evidence: a command that was run, output that was seen, a file that was read. No memory-of-similar-projects filler.
-- Numbers over adjectives: "82 s of the 90 s wait, 1.14 s/item across 73 items" — never "very slow".
+- Numbers over adjectives: "38 s of the 41 s total, 0.9 s per row across 42 rows" — never "very slow". (Illustrative shape only; use the session's own measurements.)
 - Unknowns are labeled unknown ("not verified this session"), never smoothed over.
 - Test counts, file paths, log signatures, and timestamps are quoted verbatim in backticks.
 - If multiple problems were handled, every one gets its own full block — no merging "smaller" fixes into a footnote.

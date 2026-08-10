@@ -4,7 +4,7 @@ Turn "a client says there's a bug" into either a data-backed refutation or a pro
 
 ## Why
 
-Most bug reports arrive as claims: "I added 24 and it became 1200." Some are misunderstandings. Some are real. And some are *reinterpretations* — a real bug, but not the one described. Fixing before proving wastes work on ghosts, and fixing without a behavior guarantee trades one bug for another.
+Most bug reports arrive as claims: "I entered one number and the system showed another." Some are misunderstandings. Some are real. And some are *reinterpretations* — a real bug, but not the one described. Fixing before proving wastes work on ghosts, and fixing without a behavior guarantee trades one bug for another.
 
 This skill enforces a strict pipeline:
 
@@ -25,7 +25,7 @@ cp -R mrt-prove-then-fix ~/.claude/skills/
 ## Use
 
 ```
-/mrt-prove-then-fix a client claims their basket quantity jumped from 24 to 1200 on its own
+/mrt-prove-then-fix a client claims an item quantity in their cart changed on its own
 ```
 
 Or just describe the suspected bug and ask Claude to "prove it before fixing".
