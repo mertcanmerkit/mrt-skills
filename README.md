@@ -36,6 +36,11 @@ For making AI-assisted work survive longer than one chat session.
 - **[mrt-current-changes-issue-summary](mrt-current-changes-issue-summary/)** — Turn the current uncommitted changes into a boss-ready GitHub issue title plus checked checklist.
 - **[mrt-pre-push-gate](mrt-pre-push-gate/)** — User-invoked (`/mrt-pre-push-gate`): audit staged and unstaged diffs for test/doc hygiene against the project's own subsystem docs before a push.
 
+### Debugging & fixing
+
+- **[mrt-prove-then-fix](mrt-prove-then-fix/)** — Treat a bug report as a claim: prove it with data (logs, DB forensics, a deterministic red repro) or refute it, then fix TDD-style — regression test first, existing tests read-only, full-suite behavior guarantee — and close with a deterministic report.
+- **[mrt-deterministic-fix-report](mrt-deterministic-fix-report/)** — Fixed-schema, evidence-only write-up of completed fix work: real problem, why, why it was missed, the fix, TDD verification, behavior guarantee, observed-only pending items.
+
 ### Verification & proof
 
 - **[mrt-feature-proof-auditor](mrt-feature-proof-auditor/)** — Prove requested features actually work with real browser screenshots and a Done/Missing/Uncertain/Blocked audit matrix.
