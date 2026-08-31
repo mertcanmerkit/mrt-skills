@@ -25,6 +25,7 @@ For making AI-assisted work survive longer than one chat session.
 - **[mrt-register-with-ai-playground](mrt-register-with-ai-playground/)** — Record a project in your personal AI-projects registry repo: repo URL, local path, role, usage notes, read-first files.
 - **[mrt-save-knowledge-gained](mrt-save-knowledge-gained/)** — Distill a chat's useful knowledge (decisions, findings, rejected attempts, next steps) into the project's Markdown memory so a fresh session can continue.
 - **[mrt-portable-prompt](mrt-portable-prompt/)** — Restate everything you asked for in this conversation as one clean prompt for another AI — with the assistant's answers deliberately stripped out.
+- **[mrt-skeptical-handoff-prompt](mrt-skeptical-handoff-prompt/)** — Hand an unresolved investigation to a stronger AI with this session's own findings still in, but demoted to unverified leads plus the environment/access details needed to check them independently.
 
 ### Documentation
 
