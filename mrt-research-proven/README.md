@@ -1,4 +1,4 @@
-# mrt-adversarial-claim-research
+# mrt-research-proven
 
 ## Overview
 
@@ -29,7 +29,7 @@ This also covers anyone who says "AI can be wrong, research it."
 
 ## Technical Overview
 
-- Frontmatter: `name: mrt-adversarial-claim-research`.
+- Frontmatter: `name: mrt-research-proven`.
 - Pure instruction skill, with no `scripts/` or `references/`.
 - Needs a subagent tool (Agent/Task) plus WebSearch and WebFetch in the
   subagents.
