@@ -44,6 +44,7 @@ For making AI-assisted work survive longer than one chat session.
 
 ### Verification & proof
 
+- **[mrt-adversarial-claim-research](mrt-adversarial-claim-research/)** — Fact-check advice or claims (often the AI's own) with three parallel adversarial research agents: open every source, hunt counter-evidence, give per-claim verdicts, then a corrected plan with reversals stated outright.
 - **[mrt-feature-proof-auditor](mrt-feature-proof-auditor/)** — Prove requested features actually work with real browser screenshots and a Done/Missing/Uncertain/Blocked audit matrix.
 - **[mrt-trello-proof-card-closer](mrt-trello-proof-card-closer/)** — Attach audit proof to matching Trello cards, tick them complete, and move them to the done list.
 
