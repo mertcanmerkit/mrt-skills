@@ -71,7 +71,8 @@ orchestrator turn:
    mark the inbox item `consumed` with the decision id → act.
 3. **Ask** non-blocking questions through the inbox; blocking ones
    synchronously. Every inbox question offers its options plus a final
-   **Other** with free text — always.
+   **Other** with free text — always. Typing in the text box auto-selects
+   Other, the same way Claude's own ask prompt works.
 4. **Handle sub-session reports**: record claims, verify them yourself, record
    what you verified and how, then merge on approval.
 5. **Sync out** at turn end and stamp `last_sync_at`.

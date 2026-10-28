@@ -135,6 +135,11 @@ Rules:
   are the orchestrator's guess at the answer space; the human must never be
   forced into one of them. The page renders `other` like any other option,
   and choosing it makes the free-text `answer.comment` required.
+- The answer form behaves like Claude's own ask-the-user prompt: typing in
+  the free-text box **automatically selects `other`**; clicking a listed
+  option afterwards switches the selection and keeps the typed text as an
+  optional comment. The send button stays disabled until an option is
+  selected, and for `other` until the text is non-empty.
 - Only the human moves `open → answered`. Only the orchestrator moves
   `answered → consumed | stale` and `open → withdrawn`.
 - The page locks the answer controls once `status` is `consumed`. A change of
