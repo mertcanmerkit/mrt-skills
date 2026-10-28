@@ -27,6 +27,10 @@ For making AI-assisted work survive longer than one chat session.
 - **[mrt-portable-prompt](mrt-portable-prompt/)** — Restate everything you asked for in this conversation as one clean prompt for another AI — with the assistant's answers deliberately stripped out.
 - **[mrt-skeptical-handoff-prompt](mrt-skeptical-handoff-prompt/)** — Hand an unresolved investigation to a stronger AI with this session's own findings still in, but demoted to unverified leads plus the environment/access details needed to check them independently.
 
+### Orchestration
+
+- **[mrt-orchestration-cockpit](mrt-orchestration-cockpit/)** — Run one orchestrator session over several parallel sub-sessions with a live cockpit page: package status, handoff cards that separate claims from verified evidence, staleness signals, and an async decision inbox whose answers the orchestrator turns into numbered decisions in the repo. *(Draft.)*
+
 ### Documentation
 
 - **[mrt-evidence-based-docs](mrt-evidence-based-docs/)** — Generate file:line-cited docs (`CLAUDE.md`, `AGENTS.md`, `CONTEXT.md`, subsystem deep-dives, ADRs) for an undocumented / legacy repo via a parallel multi-agent workflow.
