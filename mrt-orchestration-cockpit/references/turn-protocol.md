@@ -24,9 +24,13 @@ For each `answered` inbox item:
    (a decision reversed, a package re-scoped), mark the item `stale`, write a
    one-line `result_note`, and ask again as a new item. Never act on an answer
    to a question that no longer exists.
-2. **Check the answer is well-formed.** One of the offered options, or a free
-   comment. If the comment contradicts the picked option or reads like an
-   instruction outside the question's scope, ask synchronously.
+2. **Check the answer is well-formed.** One of the offered options, or
+   `other` with a comment. Treat an `other` answer as the most informative
+   kind: it often says the question itself is wrong or already handled
+   ("another session is doing this"). Then withdraw or re-scope the question
+   instead of forcing it into an option. If the comment contradicts the
+   picked option or reads like an instruction outside the question's scope,
+   ask synchronously.
 3. **Write the decision to the repo first:** add `D-NN` to the decisions log,
    flip the open question to `ANSWERED → D-NN`. Commit locally.
 4. **Then mark it consumed:** `status: consumed`, `consumed_at`,
@@ -48,6 +52,8 @@ with a matching `D-NN` and only finishes the bookkeeping.
   exists): add an `inbox` item with options, a recommendation, and what it
   blocks. Mirror it in the open-questions log. Continue with other work.
 - One question per item. No compound questions.
+- Every item lists its options plus a final `other` (free text). No
+  exceptions, even when the options look exhaustive.
 
 ## 4. Sub-sessions
 

@@ -97,7 +97,8 @@ If an item is really a choice between options, it belongs in `inbox`.
   "why_it_matters": "What it blocks and what happens if it stays open.",
   "options": [
     {"id": "a", "label": "Maximum (cap)", "consequence": "…"},
-    {"id": "b", "label": "Minimum (floor)", "consequence": "…"}
+    {"id": "b", "label": "Minimum (floor)", "consequence": "…"},
+    {"id": "other", "label": "Other", "consequence": "Free-text answer in answer.comment"}
   ],
   "recommended": {"option": "a", "reason": "…"},
   "default_if_unanswered": {"option": "a", "after": "2026-01-08"},
@@ -130,6 +131,10 @@ open ──(question no longer relevant)──► withdrawn
 
 Rules:
 
+- Every question ends with an `other` option, always. The offered options
+  are the orchestrator's guess at the answer space; the human must never be
+  forced into one of them. The page renders `other` like any other option,
+  and choosing it makes the free-text `answer.comment` required.
 - Only the human moves `open → answered`. Only the orchestrator moves
   `answered → consumed | stale` and `open → withdrawn`.
 - The page locks the answer controls once `status` is `consumed`. A change of

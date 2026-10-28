@@ -70,7 +70,8 @@ orchestrator turn:
 2. **Consume answers**: check assumptions → write `D-NN` to the repo →
    mark the inbox item `consumed` with the decision id → act.
 3. **Ask** non-blocking questions through the inbox; blocking ones
-   synchronously.
+   synchronously. Every inbox question offers its options plus a final
+   **Other** with free text — always.
 4. **Handle sub-session reports**: record claims, verify them yourself, record
    what you verified and how, then merge on approval.
 5. **Sync out** at turn end and stamp `last_sync_at`.
