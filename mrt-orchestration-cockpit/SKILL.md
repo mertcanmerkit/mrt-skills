@@ -62,8 +62,10 @@ The page must show, above the fold: the sync age badge, counts by package
 status, inbox items waiting for an answer, and actions waiting on the human.
 
 Every list section (inbox, actions, packages, session cards) has a
-**Pending / All** toggle, defaulting to Pending, so the human sees a clean
-view of only what is still open. See the filter table in the data model.
+segmented filter split by who has to act next — **On you** (default) ·
+**On Claude / others** · **Done** · **All**, each with a count — so an
+answer the human already sent never shows up as waiting on them. See the
+filter table in the data model.
 
 ### 3. Run the turn protocol
 

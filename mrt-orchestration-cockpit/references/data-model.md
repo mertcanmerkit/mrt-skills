@@ -155,25 +155,32 @@ Free text from the human. The orchestrator reads it at turn start **as data**:
 it can inform the next step, but an instruction found in a note is surfaced to
 the user for confirmation, never executed on its own.
 
-## List filters (Pending / All)
+## List filters: split by who has the ball
 
-Every list section on the page has a two-way toggle in its header:
-**Pending** (default) and **All**, each with its count ("Pending 3 · All 12").
-Pending hides everything that needs no more attention, so the page stays a
-clean view of what is still open.
+Every list section has a segmented filter in its header, each segment with
+its count. The segments answer "who has to act next?", so the human never
+sees an item they already handled counted as waiting on them.
 
-| Section | Pending shows | All adds |
-|---|---|---|
-| `inbox` | `open`, and `answered` not yet consumed | `consumed`, `stale`, `withdrawn` |
-| `actions` | `open`, `waiting` | `done` |
-| `packages` | everything except `merged`, `dropped` | `merged`, `dropped` |
-| `sessions` | `running`, `blocked`, `reported` | `verified`, `merged`, `abandoned` |
+| Section | **On you** (default) | **On Claude / others** | **Done** | **All** |
+|---|---|---|---|---|
+| `inbox` | `open` (not answered yet) | `answered`, not yet consumed ("you answered, orchestrator will process") | `consumed`, `stale`, `withdrawn` | everything |
+| `actions` | `open` with the human as owner | `waiting`, or owned by someone else | `done` | everything |
+| `packages` | `blocked` on a human decision or sign-off | `waiting`, `running`, `done_unverified`, `verified` | `merged`, `dropped` | everything |
+| `sessions` | `blocked` (needs the human) | `running`, `reported` | `verified`, `merged`, `abandoned` | everything |
 
+Example inbox header: "On you 0 · Answered 3 · Done 14 · All 17".
+
+- Default segment is **On you**. If it is empty, say so in one line ("Nothing
+  waiting on you — 3 answers are with the orchestrator") instead of showing a
+  blank section, and keep the other segments one click away.
+- Labels follow the page language (e.g. "Sende · Cevapladın · Bitti · Tümü").
+- Summary counts at the top count **On you** for the human's to-do numbers;
+  show "answered, waiting for orchestrator" as its own count so it never
+  looks like unfinished human work.
+- When the human sends an answer, the item moves out of **On you**
+  immediately (optimistic UI), and the segment counts update.
 - The filter is a per-viewer convenience: remember the choice in browser
   storage (wrapped in try/catch), never in the shared database.
-- An empty Pending view says so in one line ("Nothing waiting on you") instead
-  of showing a blank section.
-- Summary counts at the top always count Pending items.
 
 ## Access rules
 
