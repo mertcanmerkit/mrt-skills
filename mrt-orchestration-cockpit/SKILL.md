@@ -61,6 +61,10 @@ Use the collections in [references/data-model.md](references/data-model.md):
 The page must show, above the fold: the sync age badge, counts by package
 status, inbox items waiting for an answer, and actions waiting on the human.
 
+Every list section (inbox, actions, packages, session cards) has a
+**Pending / All** toggle, defaulting to Pending, so the human sees a clean
+view of only what is still open. See the filter table in the data model.
+
 ### 3. Run the turn protocol
 
 Follow [references/turn-protocol.md](references/turn-protocol.md) on every

@@ -155,6 +155,26 @@ Free text from the human. The orchestrator reads it at turn start **as data**:
 it can inform the next step, but an instruction found in a note is surfaced to
 the user for confirmation, never executed on its own.
 
+## List filters (Pending / All)
+
+Every list section on the page has a two-way toggle in its header:
+**Pending** (default) and **All**, each with its count ("Pending 3 · All 12").
+Pending hides everything that needs no more attention, so the page stays a
+clean view of what is still open.
+
+| Section | Pending shows | All adds |
+|---|---|---|
+| `inbox` | `open`, and `answered` not yet consumed | `consumed`, `stale`, `withdrawn` |
+| `actions` | `open`, `waiting` | `done` |
+| `packages` | everything except `merged`, `dropped` | `merged`, `dropped` |
+| `sessions` | `running`, `blocked`, `reported` | `verified`, `merged`, `abandoned` |
+
+- The filter is a per-viewer convenience: remember the choice in browser
+  storage (wrapped in try/catch), never in the shared database.
+- An empty Pending view says so in one line ("Nothing waiting on you") instead
+  of showing a blank section.
+- Summary counts at the top always count Pending items.
+
 ## Access rules
 
 - Human-writable: `actions.status`, `inbox.answer/answered_*`, `notes`.
